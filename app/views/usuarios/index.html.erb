@@ -1,0 +1,36 @@
+<h3> Usuarios </h3>
+
+
+<%= link_to "Cadastrar", new_usuario_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome completo</th>
+      <th>Nome de usuario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.nome %></td>
+        <td><%= usuario.login %></td>
+         <td><%= link_to 'Mostra', usuario %></td>
+         <td><%= link_to 'Edita', edit_usuario_path(usuario) %></td>
+        <td><%= link_to 'Excluir', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody> 
+</table>
+
+<p>
+
+<form method="get" action='usuarios/pesquisar'>
+Pesquisa de usuarios por nome: 
+<input type="text" name="pesquisa" maxlength="100" size="60x12">
+
+<input type="submit" value="Pesquisar">
+</form>
+

@@ -1,0 +1,3 @@
+class GeografiaController < ApplicationController
+	
+end
